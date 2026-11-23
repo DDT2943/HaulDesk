@@ -1,0 +1,80 @@
+appId: app.hauldesk.desktop
+productName: HaulDesk
+copyright: Copyright © 2026 HaulDesk Contributors
+asar: false
+
+directories:
+  output: release-desktop
+  buildResources: build-resources
+
+files:
+  - dist/**/*
+  - dist-extension/hauldesk-quickadd.xpi
+  - electron/**/*
+  - build-resources/**/*
+  - package.json
+  - LICENSE
+  - "!.env"
+  - "!.env.*"
+  - "!data/**"
+  - "!release/**"
+  - "!release-desktop/**"
+  - "!dist/**/*.map"
+  - "!node_modules/.cache/**"
+  - "!node_modules/**/test/**"
+  - "!node_modules/**/tests/**"
+
+win:
+  icon: build-resources/icon.png
+  target:
+    - target: nsis
+      arch:
+        - x64
+    - target: portable
+      arch:
+        - x64
+  artifactName: "HaulDesk-${version}-win-${arch}-${ext}.${ext}"
+
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: HaulDesk
+  artifactName: "HaulDesk-${version}-win-${arch}-setup.${ext}"
+
+portable:
+  artifactName: "HaulDesk-${version}-win-${arch}-portable.${ext}"
+
+mac:
+  icon: build-resources/icon.png
+  category: public.app-category.utilities
+  darkModeSupport: true
+  target:
+    - target: dmg
+      arch:
+        - x64
+        - arm64
+    - target: zip
+      arch:
+        - x64
+        - arm64
+  artifactName: "HaulDesk-${version}-mac-${arch}.${ext}"
+
+linux:
+  icon: build-resources/icon.png
+  category: Utility
+  maintainer: "HaulDesk Contributors"
+  syncDesktopName: true
+  synopsis: "Order catalog, parcel tracker & flatlay outfit builder for shopping agent hauls"
+  target:
+    - target: AppImage
+      arch:
+        - x64
+    - target: deb
+      arch:
+        - x64
+  artifactName: "HaulDesk-${version}-linux-${arch}.${ext}"
+
+deb:
+  compression: gz

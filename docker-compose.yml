@@ -1,0 +1,23 @@
+services:
+  hauldesk:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: hauldesk
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      PORT: "3000"
+      HOST: 0.0.0.0
+      DATA_DIR: /app/data
+      DISABLE_AI_ANALYSIS: "${DISABLE_AI_ANALYSIS:-true}"
+      DISABLE_AI_BG_REMOVAL: "${DISABLE_AI_BG_REMOVAL:-false}"
+      APP_URL: "${APP_URL:-}"
+      ALLOWED_ORIGINS: "${ALLOWED_ORIGINS:-}"
+    ports:
+      # Defaults to localhost:3000. Existing reverse-proxy deployments on another port (e.g. 3003)
+      # can set HAULDESK_HOST_PORT=3003 in .env without modifying this file.
+      - "127.0.0.1:${HAULDESK_HOST_PORT:-3000}:3000"
+    volumes:
+      # Persistent storage for hauldesk-db.json and cached u2netp.onnx segmentation weights
+      - ./data:/app/data

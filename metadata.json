@@ -1,0 +1,6 @@
+{
+  "name": "HaulDesk",
+  "description": "Local-first Superbuy & agent haul organizer with multi-vendor grouping, category breakdowns, shipping estimation, and flatlay outfit studio.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

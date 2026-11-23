@@ -1,0 +1,86 @@
+# Dependencies
+node_modules/
+package-lock.json
+.pnp
+.pnp.js
+
+# Build Outputs & Generated Packages
+dist/
+dist-server/
+dist-extension/
+dist-electron/
+firefox-extension/assets/
+firefox-extension/popup.html
+out/
+build/
+release/
+release-desktop/
+*.xpi
+*.zip
+*.tar.gz
+*.tgz
+*.dmg
+*.exe
+*.AppImage
+*.deb
+*.rpm
+
+# Persistent User Data & Local Databases
+data/
+/data/
+*.db
+*.sqlite
+hauldesk-db.json*
+hauldesk-db.backup*.json
+
+# Environment Variables, Secrets & Keys
+.env
+.env.*
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+!.env.example
+*.pem
+*.crt
+*.key
+*.pfx
+*.cert
+
+# Logs & Diagnostics
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Test & Coverage Artifacts
+coverage/
+.nyc_output/
+junit.xml
+
+# IDE, Editor & OS metadata
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Platform & Tool Caches
+.eslintcache
+tsconfig.tsbuildinfo
+.aistudio/
+public/assets/aistudio/
+.playwright-cli/
+.cache/
+bun.lock

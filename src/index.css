@@ -1,0 +1,65 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-display: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Grayscale & status scale for ReceiptPrinter & tactile dark/light surfaces */
+  --color-grayscale-1: #FFFFFF;
+  --color-grayscale-2: #F7F7F5;
+  --color-grayscale-3: #EFEFEA;
+  --color-grayscale-4: #E5E5E0;
+  --color-grayscale-5: #D6D6CF;
+  --color-grayscale-6: #B8B8B0;
+  --color-grayscale-7: #8E8E87;
+  --color-grayscale-8: #6E6E68;
+  --color-grayscale-9: #52524E;
+  --color-grayscale-10: #353532;
+  --color-grayscale-11: #1F1F1D;
+  --color-grayscale-12: #111110;
+  --color-green-9: #16A34A;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    background-color: #F7F7F5;
+    color: #111110;
+    overflow-y: scroll;
+    scrollbar-gutter: stable;
+  }
+
+  html.dark {
+    background-color: #0D0D0C;
+    color: #F7F7F5;
+    color-scheme: dark;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Tactile receipt paper subtle texture */
+.receipt-paper {
+  background-color: #FFFFFF;
+  background-image: radial-gradient(rgba(17, 17, 16, 0.025) 1px, transparent 0);
+  background-size: 16px 16px;
+}
+
+html.dark .receipt-paper {
+  background-color: #161614;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 0);
+}
+
+/* Subtle noise texture for ReceiptPrinter chassis */
+.printer-noise-bg::before {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 0);
+  background-size: 6px 6px;
+}
